@@ -3343,5 +3343,10 @@
   "1 wk/s": "1 нед/с",
   "Play speed": "Скорость воспроизведения",
   "Scroll or pinch to zoom, drag to move along · double-click to see it all": "Прокрутите или сведите пальцы для масштаба, перетащите для перемещения · двойной щелчок — показать всё",
-  "1 min/s": "1 мин/с"
+  "1 min/s": "1 мин/с",
+  "USGS Rivers & Streams": "USGS: реки и ручьи",
+  "USGS Lakes & Reservoirs": "USGS: озёра и водохранилища",
+  "USGS Springs": "USGS: родники",
+  "Water": "Вода",
+  "Zoom in to a region to load river gauges": "Приблизьте регион, чтобы загрузить речные датчики"
 }
