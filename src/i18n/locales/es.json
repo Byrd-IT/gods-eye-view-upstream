@@ -3716,5 +3716,20 @@
   "Scope opacity": "Opacidad de la mirilla",
   "How dark the scope shades the view outside the keyhole": "Cuánto oscurece la mirilla la vista fuera del ojo de cerradura",
   "Reset to default": "Restablecer valores predeterminados",
-  "Reset Visual to its defaults: Normal look, HUD, scope, labels and effects": "Restablecer Visual a sus valores predeterminados: aspecto Normal, HUD, mirilla, etiquetas y efectos"
+  "Reset Visual to its defaults: Normal look, HUD, scope, labels and effects": "Restablecer Visual a sus valores predeterminados: aspecto Normal, HUD, mirilla, etiquetas y efectos",
+  "Tilt up toward the horizon": "Inclinar hacia el horizonte",
+  "Tilt down toward top-down view": "Inclinar hacia la vista cenital",
+  "Top-down view": "Vista cenital",
+  "Look left": "Mirar a la izquierda",
+  "Look right": "Mirar a la derecha",
+  "Look up": "Mirar hacia arriba",
+  "Look down": "Mirar hacia abajo",
+  "Map navigation": "Navegación del mapa",
+  "Tilt": "Inclinación",
+  "Tilt: top-down (bottom) to near horizon (top)": "Inclinación: cenital (abajo) a casi horizonte (arriba)",
+  "Map heading. Drag to rotate, arrow keys turn, Home for north": "Rumbo del mapa. Arrastra para girar, las flechas giran, Inicio para el norte",
+  "North, 0 degrees": "Norte, 0 grados",
+  "Look around": "Mirar alrededor",
+  "{heading} degrees from north": "{heading} grados desde el norte",
+  "{tilt} degrees from top-down": "{tilt} grados desde la vista cenital"
 }
