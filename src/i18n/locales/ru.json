@@ -3313,5 +3313,9 @@
   "Open {name} on Acartia": "Открыть {name} в Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "Участники iNaturalist · лицензия у каждой записи",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Участники iNaturalist · Acartia {count} (море Сэлиш) · лицензия у каждой записи"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Участники iNaturalist · Acartia {count} (море Сэлиш) · лицензия у каждой записи",
+  "Clean view: hide the controls": "Чистый вид: скрыть элементы управления",
+  "Exit clean view: show the controls": "Выйти из чистого вида: показать элементы управления",
+  "Clean view: hide the controls (V)": "Чистый вид: скрыть элементы управления (V)",
+  "{label} (V)": "{label} (V)"
 }

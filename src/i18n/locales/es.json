@@ -3238,5 +3238,9 @@
   "Open {name} on Acartia": "Abrir {name} en Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "Colaboradores de iNaturalist · licencias por registro",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Colaboradores de iNaturalist · Acartia {count} (mar de Salish) · licencias por registro"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Colaboradores de iNaturalist · Acartia {count} (mar de Salish) · licencias por registro",
+  "Clean view: hide the controls": "Vista limpia: ocultar los controles",
+  "Exit clean view: show the controls": "Salir de vista limpia: mostrar los controles",
+  "Clean view: hide the controls (V)": "Vista limpia: ocultar los controles (V)",
+  "{label} (V)": "{label} (V)"
 }
