@@ -3323,5 +3323,9 @@
   "Maximum event age: {days}d; undated markers are kept": "Максимальный возраст события: {days} дн.; метки без даты сохранены",
   "event age filter|All": "Все",
   "Event age": "Возраст события",
-  "Event age: {days}d · undated kept": "Возраст события: {days} дн. · метки без даты сохранены"
+  "Event age: {days}d · undated kept": "Возраст события: {days} дн. · метки без даты сохранены",
+  "Clean view: hide the controls": "Чистый вид: скрыть элементы управления",
+  "Exit clean view: show the controls": "Выйти из чистого вида: показать элементы управления",
+  "Clean view: hide the controls (V)": "Чистый вид: скрыть элементы управления (V)",
+  "{label} (V)": "{label} (V)"
 }
