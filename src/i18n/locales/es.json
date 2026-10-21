@@ -3720,5 +3720,10 @@
   "Search layers…": "Buscar capas…",
   "Layer groups": "Grupos de capas",
   "Jump to {name}": "Ir a {name}",
-  "No layers match": "Ninguna capa coincide"
+  "No layers match": "Ninguna capa coincide",
+  "Water": "Agua",
+  "USGS Springs": "USGS: manantiales",
+  "Zoom in to a region to load river gauges": "Acércate a una región para cargar los medidores de ríos",
+  "USGS Lakes & Reservoirs": "USGS: lagos y embalses",
+  "USGS Rivers & Streams": "USGS: ríos y arroyos"
 }

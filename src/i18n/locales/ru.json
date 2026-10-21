@@ -3807,5 +3807,10 @@
   "Search layers…": "Поиск слоёв…",
   "Layer groups": "Группы слоёв",
   "Jump to {name}": "Перейти к «{name}»",
-  "No layers match": "Нет подходящих слоёв"
+  "No layers match": "Нет подходящих слоёв",
+  "Water": "Вода",
+  "USGS Springs": "USGS: родники",
+  "Zoom in to a region to load river gauges": "Приблизьте регион, чтобы загрузить речные датчики",
+  "USGS Lakes & Reservoirs": "USGS: озёра и водохранилища",
+  "USGS Rivers & Streams": "USGS: реки и ручьи"
 }

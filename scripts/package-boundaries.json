@@ -11,7 +11,10 @@
       "src/data/localGeojsonLod.js",
       "src/data/inputOwnership.js",
       "src/data/infrastructureOverlayEntry.js",
-      "src/sources/infrastructureData.js"
+      "src/sources/infrastructureData.js",
+      "src/layers/usgsWater/index.js",
+      "src/layers/usgsWater/copy.js",
+      "src/i18n/marker.js"
     ],
     "external": ["cesium"]
   },
@@ -3845,7 +3848,9 @@
       "src/layers/flights/placed.js",
       "src/data/placementProvider.js",
       "src/data/courseFromFixes.js",
-      "src/time/frameWait.js"
+      "src/time/frameWait.js",
+      "src/layers/usgsWater/index.js",
+      "src/layers/usgsWater/copy.js"
     ],
     "external": [
       "hls.js",
@@ -4573,7 +4578,9 @@
       "src/layers/flights/placed.js",
       "src/data/placementProvider.js",
       "src/data/courseFromFixes.js",
-      "src/time/frameWait.js"
+      "src/time/frameWait.js",
+      "src/layers/usgsWater/index.js",
+      "src/layers/usgsWater/copy.js"
     ],
     "external": [
       "hls.js",
