@@ -3545,5 +3545,9 @@
   "ICAO: {id}": "ICAO: {id}",
   "NORAD: {id}": "NORAD: {id}",
   "MMSI: {id}": "MMSI: {id}",
-  "Vessel UUID: {id}": "UUID del buque: {id}"
+  "Vessel UUID: {id}": "UUID del buque: {id}",
+  "Clean view: hide the controls": "Vista limpia: ocultar los controles",
+  "Exit clean view: show the controls": "Salir de vista limpia: mostrar los controles",
+  "Clean view: hide the controls (V)": "Vista limpia: ocultar los controles (V)",
+  "{label} (V)": "{label} (V)"
 }
