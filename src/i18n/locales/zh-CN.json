@@ -3088,5 +3088,9 @@
   "Open {name} on Acartia": "在 Acartia 上打开 {name}",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "iNaturalist 贡献者 · 各记录单独授权",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist 贡献者 · Acartia {count}（萨利希海） · 各记录单独授权"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist 贡献者 · Acartia {count}（萨利希海） · 各记录单独授权",
+  "Clean view: hide the controls": "简洁视图：隐藏控件",
+  "Exit clean view: show the controls": "退出简洁视图：显示控件",
+  "Clean view: hide the controls (V)": "简洁视图：隐藏控件 (V)",
+  "{label} (V)": "{label} (V)"
 }
