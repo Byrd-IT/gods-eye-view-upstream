@@ -3163,5 +3163,8 @@
   "Open {name} on Acartia": "{name} auf Acartia öffnen",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "iNaturalist-Beitragende · Lizenzen je Eintrag",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist-Beitragende · Acartia {count} (Salish-See) · Lizenzen je Eintrag"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist-Beitragende · Acartia {count} (Salish-See) · Lizenzen je Eintrag",
+  "Clean view: hide the controls": "Reine Ansicht: Steuerelemente ausblenden",
+  "Exit clean view: show the controls": "Reine Ansicht beenden: Steuerelemente anzeigen",
+  "{label} (V)": "{label} (V)"
 }

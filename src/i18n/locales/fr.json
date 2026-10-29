@@ -3238,5 +3238,8 @@
   "Open {name} on Acartia": "Ouvrir {name} sur Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "Contributeurs iNaturalist · licences par observation",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Contributeurs iNaturalist · Acartia {count} (mer des Salish) · licences par observation"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Contributeurs iNaturalist · Acartia {count} (mer des Salish) · licences par observation",
+  "Clean view: hide the controls": "Vue épurée : masquer les commandes",
+  "Exit clean view: show the controls": "Quitter la vue épurée : afficher les commandes",
+  "{label} (V)": "{label} (V)"
 }
