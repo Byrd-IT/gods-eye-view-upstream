@@ -3692,5 +3692,8 @@
   "Confirm: remove every added entry from Data Layers": "Conferma: rimuovi da Livelli dati tutte le voci aggiunte",
   "Remove every added entry from Data Layers": "Rimuovi da Livelli dati tutte le voci aggiunte",
   "Showing {shown} of {total}": "Mostrati: {shown} su {total}",
-  "BROWSE DATA LIBRARY": "ESPLORA LIBRERIA DATI"
+  "BROWSE DATA LIBRARY": "ESPLORA LIBRERIA DATI",
+  "Clean view: hide the controls": "Vista pulita: nascondi i controlli",
+  "Exit clean view: show the controls": "Esci dalla vista pulita: mostra i controlli",
+  "{label} (V)": "{label} (V)"
 }

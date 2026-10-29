@@ -3518,5 +3518,8 @@
   "Confirm: remove every added entry from Data Layers": "確認：追加したすべての項目をデータレイヤーから削除",
   "Remove every added entry from Data Layers": "追加したすべての項目をデータレイヤーから削除",
   "Showing {shown} of {total}": "{total}件中{shown}件を表示",
-  "BROWSE DATA LIBRARY": "データライブラリを見る"
+  "BROWSE DATA LIBRARY": "データライブラリを見る",
+  "Clean view: hide the controls": "クリーンビュー：操作を隠す",
+  "Exit clean view: show the controls": "クリーンビューを終了：操作を表示",
+  "{label} (V)": "{label} (V)"
 }
