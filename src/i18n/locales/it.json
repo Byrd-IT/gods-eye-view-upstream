@@ -3381,5 +3381,10 @@
   "1 wk/s": "1 sett/s",
   "Play speed": "Velocità di riproduzione",
   "Scroll or pinch to zoom, drag to move along · double-click to see it all": "Scorri o pizzica per lo zoom, trascina per spostarti · doppio clic per vedere tutto",
-  "1 min/s": "1 min/s"
+  "1 min/s": "1 min/s",
+  "Zoom in to a region to load river gauges": "Ingrandisci una regione per caricare i misuratori dei fiumi",
+  "USGS Rivers & Streams": "USGS: fiumi e torrenti",
+  "USGS Lakes & Reservoirs": "USGS: laghi e bacini",
+  "USGS Springs": "USGS: sorgenti",
+  "Water": "Acqua"
 }
