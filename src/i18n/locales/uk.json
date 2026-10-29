@@ -3626,5 +3626,10 @@
   "ICAO: {id}": "ICAO: {id}",
   "NORAD: {id}": "NORAD: {id}",
   "MMSI: {id}": "MMSI: {id}",
-  "Vessel UUID: {id}": "UUID судна: {id}"
+  "Vessel UUID: {id}": "UUID судна: {id}",
+  "Zoom in to a region to load river gauges": "Наблизьте регіон, щоб завантажити вимірювачі рівня річок",
+  "USGS Rivers & Streams": "USGS: річки та струмки",
+  "USGS Lakes & Reservoirs": "USGS: озера та водосховища",
+  "USGS Springs": "USGS: джерела",
+  "Water": "Вода"
 }
