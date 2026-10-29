@@ -3343,5 +3343,10 @@
   "1 wk/s": "1 тиж/с",
   "Play speed": "Швидкість відтворення",
   "Scroll or pinch to zoom, drag to move along · double-click to see it all": "Прокрутіть або зведіть пальці для масштабу, перетягніть для переміщення · подвійне клацання — показати все",
-  "1 min/s": "1 хв/с"
+  "1 min/s": "1 хв/с",
+  "Zoom in to a region to load river gauges": "Наблизьте регіон, щоб завантажити вимірювачі рівня річок",
+  "USGS Rivers & Streams": "USGS: річки та струмки",
+  "USGS Lakes & Reservoirs": "USGS: озера та водосховища",
+  "USGS Springs": "USGS: джерела",
+  "Water": "Вода"
 }
