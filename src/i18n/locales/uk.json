@@ -3313,5 +3313,10 @@
   "Open {name} on Acartia": "Відкрити {name} в Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "Учасники iNaturalist · ліцензія в кожного запису",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Учасники iNaturalist · Acartia {count} (море Селіш) · ліцензія в кожного запису"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Учасники iNaturalist · Acartia {count} (море Селіш) · ліцензія в кожного запису",
+  "Zoom in to a region to load river gauges": "Наблизьте регіон, щоб завантажити вимірювачі рівня річок",
+  "USGS Rivers & Streams": "USGS: річки та струмки",
+  "USGS Lakes & Reservoirs": "USGS: озера та водосховища",
+  "USGS Springs": "USGS: джерела",
+  "Water": "Вода"
 }

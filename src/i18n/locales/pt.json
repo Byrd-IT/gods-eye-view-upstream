@@ -3238,5 +3238,10 @@
   "Open {name} on Acartia": "Abrir {name} no Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "Colaboradores do iNaturalist · licenças por registro",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Colaboradores do iNaturalist · Acartia {count} (mar de Salish) · licenças por registro"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Colaboradores do iNaturalist · Acartia {count} (mar de Salish) · licenças por registro",
+  "Zoom in to a region to load river gauges": "Aproxime uma região para carregar os medidores de rios",
+  "USGS Rivers & Streams": "USGS: rios e riachos",
+  "USGS Lakes & Reservoirs": "USGS: lagos e reservatórios",
+  "USGS Springs": "USGS: nascentes",
+  "Water": "Água"
 }
