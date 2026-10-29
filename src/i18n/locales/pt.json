@@ -3720,5 +3720,10 @@
   "Search layers…": "Pesquisar camadas…",
   "Layer groups": "Grupos de camadas",
   "Jump to {name}": "Ir para {name}",
-  "No layers match": "Nenhuma camada corresponde"
+  "No layers match": "Nenhuma camada corresponde",
+  "USGS Lakes & Reservoirs": "USGS: lagos e reservatórios",
+  "Water": "Água",
+  "USGS Rivers & Streams": "USGS: rios e riachos",
+  "Zoom in to a region to load river gauges": "Aproxime uma região para carregar os medidores de rios",
+  "USGS Springs": "USGS: nascentes"
 }

@@ -3720,5 +3720,10 @@
   "Search layers…": "Cerca livelli…",
   "Layer groups": "Gruppi di livelli",
   "Jump to {name}": "Vai a {name}",
-  "No layers match": "Nessun livello corrisponde"
+  "No layers match": "Nessun livello corrisponde",
+  "USGS Lakes & Reservoirs": "USGS: laghi e bacini",
+  "Water": "Acqua",
+  "USGS Rivers & Streams": "USGS: fiumi e torrenti",
+  "Zoom in to a region to load river gauges": "Ingrandisci una regione per caricare i misuratori dei fiumi",
+  "USGS Springs": "USGS: sorgenti"
 }

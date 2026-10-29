@@ -3807,5 +3807,10 @@
   "Search layers…": "Пошук шарів…",
   "Layer groups": "Групи шарів",
   "Jump to {name}": "Перейти до «{name}»",
-  "No layers match": "Немає відповідних шарів"
+  "No layers match": "Немає відповідних шарів",
+  "USGS Lakes & Reservoirs": "USGS: озера та водосховища",
+  "Water": "Вода",
+  "USGS Rivers & Streams": "USGS: річки та струмки",
+  "Zoom in to a region to load river gauges": "Наблизьте регіон, щоб завантажити вимірювачі рівня річок",
+  "USGS Springs": "USGS: джерела"
 }
