@@ -3173,5 +3173,8 @@
   "Maximum event age: {days}d; undated markers are kept": "Maximales Ereignisalter: {days} Tage; undatierte Markierungen bleiben",
   "event age filter|All": "Alle",
   "Event age": "Ereignisalter",
-  "Event age: {days}d · undated kept": "Ereignisalter: {days} Tage · undatierte bleiben"
+  "Event age: {days}d · undated kept": "Ereignisalter: {days} Tage · undatierte bleiben",
+  "Clean view: hide the controls": "Reine Ansicht: Steuerelemente ausblenden",
+  "Exit clean view: show the controls": "Reine Ansicht beenden: Steuerelemente anzeigen",
+  "{label} (V)": "{label} (V)"
 }

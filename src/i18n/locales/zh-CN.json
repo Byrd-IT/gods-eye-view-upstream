@@ -3101,6 +3101,5 @@
   "Event age: {days}d · undated kept": "事件时间：{days}天内 · 保留无日期标记",
   "Clean view: hide the controls": "简洁视图：隐藏控件",
   "Exit clean view: show the controls": "退出简洁视图：显示控件",
-  "Clean view: hide the controls (V)": "简洁视图：隐藏控件 (V)",
   "{label} (V)": "{label} (V)"
 }

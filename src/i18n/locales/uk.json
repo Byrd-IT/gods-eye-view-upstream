@@ -3323,5 +3323,8 @@
   "Maximum event age: {days}d; undated markers are kept": "Максимальний вік події: {days} дн.; позначки без дати збережено",
   "event age filter|All": "Усі",
   "Event age": "Вік події",
-  "Event age: {days}d · undated kept": "Вік події: {days} дн. · позначки без дати збережено"
+  "Event age: {days}d · undated kept": "Вік події: {days} дн. · позначки без дати збережено",
+  "Clean view: hide the controls": "Чистий інтерфейс: сховати елементи керування",
+  "Exit clean view: show the controls": "Повернути інтерфейс: показати елементи керування",
+  "{label} (V)": "{label} (V)"
 }

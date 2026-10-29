@@ -3098,5 +3098,8 @@
   "Maximum event age: {days}d; undated markers are kept": "イベントの最大経過日数：{days}日。日付のないマーカーは保持",
   "event age filter|All": "すべて",
   "Event age": "経過日数",
-  "Event age: {days}d · undated kept": "経過日数：{days}日以内 · 日付なしは保持"
+  "Event age: {days}d · undated kept": "経過日数：{days}日以内 · 日付なしは保持",
+  "Clean view: hide the controls": "クリーンビュー：操作を隠す",
+  "Exit clean view: show the controls": "クリーンビューを終了：操作を表示",
+  "{label} (V)": "{label} (V)"
 }

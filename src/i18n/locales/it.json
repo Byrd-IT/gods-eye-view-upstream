@@ -3248,5 +3248,8 @@
   "Maximum event age: {days}d; undated markers are kept": "Età massima degli eventi: {days} giorni; indicatori senza data mantenuti",
   "event age filter|All": "Tutti",
   "Event age": "Età degli eventi",
-  "Event age: {days}d · undated kept": "Età degli eventi: {days} giorni · senza data mantenuti"
+  "Event age: {days}d · undated kept": "Età degli eventi: {days} giorni · senza data mantenuti",
+  "Clean view: hide the controls": "Vista pulita: nascondi i controlli",
+  "Exit clean view: show the controls": "Esci dalla vista pulita: mostra i controlli",
+  "{label} (V)": "{label} (V)"
 }
