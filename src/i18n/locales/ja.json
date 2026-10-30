@@ -3088,5 +3088,10 @@
   "Open {name} on Acartia": "Acartiaで{name}を開く",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "iNaturalist の投稿者 · ライセンスは記録ごと",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist の投稿者 · Acartia {count}（セイリッシュ海） · ライセンスは記録ごと"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist の投稿者 · Acartia {count}（セイリッシュ海） · ライセンスは記録ごと",
+  "Zoom in to a region to load river gauges": "地域にズームして河川観測所を読み込みます",
+  "USGS Rivers & Streams": "USGS：河川・小川",
+  "USGS Lakes & Reservoirs": "USGS：湖・貯水池",
+  "USGS Springs": "USGS：湧水",
+  "Water": "水"
 }
