@@ -3720,5 +3720,10 @@
   "Search layers…": "Rechercher des couches…",
   "Layer groups": "Groupes de couches",
   "Jump to {name}": "Aller à {name}",
-  "No layers match": "Aucune couche ne correspond"
+  "No layers match": "Aucune couche ne correspond",
+  "USGS Lakes & Reservoirs": "USGS : lacs et réservoirs",
+  "Water": "Eau",
+  "Zoom in to a region to load river gauges": "Zoomez sur une région pour charger les stations hydrométriques",
+  "USGS Springs": "USGS : sources",
+  "USGS Rivers & Streams": "USGS : rivières et ruisseaux"
 }

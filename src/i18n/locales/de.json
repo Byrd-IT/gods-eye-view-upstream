@@ -3633,5 +3633,10 @@
   "Search layers…": "Ebenen suchen…",
   "Layer groups": "Ebenengruppen",
   "Jump to {name}": "Zu {name} springen",
-  "No layers match": "Keine passenden Ebenen"
+  "No layers match": "Keine passenden Ebenen",
+  "USGS Lakes & Reservoirs": "USGS: Seen und Stauseen",
+  "Water": "Wasser",
+  "Zoom in to a region to load river gauges": "Zoomen Sie in eine Region, um Pegelmessstellen zu laden",
+  "USGS Springs": "USGS: Quellen",
+  "USGS Rivers & Streams": "USGS: Flüsse und Bäche"
 }
