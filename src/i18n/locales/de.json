@@ -3193,5 +3193,10 @@
   "1 wk/s": "1 Wo./s",
   "Play speed": "Wiedergabegeschwindigkeit",
   "Scroll or pinch to zoom, drag to move along · double-click to see it all": "Scrollen oder mit zwei Fingern zoomen, ziehen zum Verschieben · Doppelklick zeigt alles",
-  "1 min/s": "1 Min./s"
+  "1 min/s": "1 Min./s",
+  "Zoom in to a region to load river gauges": "Zoomen Sie in eine Region, um Pegelmessstellen zu laden",
+  "USGS Rivers & Streams": "USGS: Flüsse und Bäche",
+  "USGS Lakes & Reservoirs": "USGS: Seen und Stauseen",
+  "USGS Springs": "USGS: Quellen",
+  "Water": "Wasser"
 }

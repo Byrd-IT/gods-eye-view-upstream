@@ -3118,5 +3118,10 @@
   "1 wk/s": "1週間/秒",
   "Play speed": "再生速度",
   "Scroll or pinch to zoom, drag to move along · double-click to see it all": "スクロールまたはピンチでズーム、ドラッグで移動 · ダブルクリックで全体表示",
-  "1 min/s": "1分/秒"
+  "1 min/s": "1分/秒",
+  "Zoom in to a region to load river gauges": "地域にズームして河川観測所を読み込みます",
+  "USGS Rivers & Streams": "USGS：河川・小川",
+  "USGS Lakes & Reservoirs": "USGS：湖・貯水池",
+  "USGS Springs": "USGS：湧水",
+  "Water": "水"
 }
