@@ -3699,5 +3699,20 @@
   "Reset view reloads the app without the view restored from the address bar.": "Réinitialiser la vue recharge l’app sans la vue restaurée depuis la barre d’adresse.",
   "Reload": "Recharger",
   "Retry": "Réessayer",
-  "Reset view": "Réinitialiser la vue"
+  "Reset view": "Réinitialiser la vue",
+  "Tilt up toward the horizon": "Incliner vers l'horizon",
+  "Tilt down toward top-down view": "Incliner vers la vue du dessus",
+  "Top-down view": "Vue du dessus",
+  "Look left": "Regarder à gauche",
+  "Look right": "Regarder à droite",
+  "Look up": "Regarder vers le haut",
+  "Look down": "Regarder vers le bas",
+  "Map navigation": "Navigation de la carte",
+  "Tilt": "Inclinaison",
+  "Tilt: top-down (bottom) to near horizon (top)": "Inclinaison : vue du dessus (bas) à presque l'horizon (haut)",
+  "Map heading. Drag to rotate, arrow keys turn, Home for north": "Cap de la carte. Faites glisser pour tourner, les flèches font pivoter, Origine pour le nord",
+  "North, 0 degrees": "Nord, 0 degré",
+  "Look around": "Regarder autour",
+  "{heading} degrees from north": "{heading} degrés depuis le nord",
+  "{tilt} degrees from top-down": "{tilt} degrés depuis la vue du dessus"
 }
