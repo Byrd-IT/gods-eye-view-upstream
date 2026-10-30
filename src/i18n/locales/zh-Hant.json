@@ -3546,5 +3546,10 @@
   "Search layers…": "搜尋圖層…",
   "Layer groups": "圖層分組",
   "Jump to {name}": "跳至{name}",
-  "No layers match": "沒有符合的圖層"
+  "No layers match": "沒有符合的圖層",
+  "USGS Springs": "USGS：泉水",
+  "Water": "水",
+  "USGS Rivers & Streams": "USGS：河流與溪流",
+  "Zoom in to a region to load river gauges": "放大到某個區域以載入河流水位站",
+  "USGS Lakes & Reservoirs": "USGS：湖泊與水庫"
 }
