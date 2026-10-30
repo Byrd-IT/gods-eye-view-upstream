@@ -3464,5 +3464,10 @@
   "ICAO: {id}": "ICAO: {id}",
   "NORAD: {id}": "NORAD: {id}",
   "MMSI: {id}": "MMSI: {id}",
-  "Vessel UUID: {id}": "Schiffs-UUID: {id}"
+  "Vessel UUID: {id}": "Schiffs-UUID: {id}",
+  "Zoom in to a region to load river gauges": "Zoomen Sie in eine Region, um Pegelmessstellen zu laden",
+  "USGS Rivers & Streams": "USGS: Flüsse und Bäche",
+  "USGS Lakes & Reservoirs": "USGS: Seen und Stauseen",
+  "USGS Springs": "USGS: Quellen",
+  "Water": "Wasser"
 }
