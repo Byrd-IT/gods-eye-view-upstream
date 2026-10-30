@@ -3716,5 +3716,20 @@
   "Scope opacity": "Opacità dello scope",
   "How dark the scope shades the view outside the keyhole": "Quanto lo scope scurisce la vista fuori dal foro",
   "Reset to default": "Ripristina predefiniti",
-  "Reset Visual to its defaults: Normal look, HUD, scope, labels and effects": "Ripristina Visuale ai valori predefiniti: aspetto Normale, HUD, scope, etichette ed effetti"
+  "Reset Visual to its defaults: Normal look, HUD, scope, labels and effects": "Ripristina Visuale ai valori predefiniti: aspetto Normale, HUD, scope, etichette ed effetti",
+  "Tilt up toward the horizon": "Inclina verso l'orizzonte",
+  "Tilt down toward top-down view": "Inclina verso la vista dall'alto",
+  "Top-down view": "Vista dall'alto",
+  "Look left": "Guarda a sinistra",
+  "Look right": "Guarda a destra",
+  "Look up": "Guarda in alto",
+  "Look down": "Guarda in basso",
+  "Map navigation": "Navigazione della mappa",
+  "Tilt": "Inclinazione",
+  "Tilt: top-down (bottom) to near horizon (top)": "Inclinazione: vista dall'alto (in basso) fino quasi all'orizzonte (in alto)",
+  "Map heading. Drag to rotate, arrow keys turn, Home for north": "Orientamento della mappa. Trascina per ruotare, le frecce girano, Home per il nord",
+  "North, 0 degrees": "Nord, 0 gradi",
+  "Look around": "Guarda intorno",
+  "{heading} degrees from north": "{heading} gradi dal nord",
+  "{tilt} degrees from top-down": "{tilt} gradi dalla vista dall'alto"
 }
