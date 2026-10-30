@@ -3692,5 +3692,20 @@
   "Confirm: remove every added entry from Data Layers": "Confirmer : retirer du panneau Couches toutes les entrées ajoutées",
   "Remove every added entry from Data Layers": "Retirer du panneau Couches toutes les entrées ajoutées",
   "Showing {shown} of {total}": "Affichées : {shown} sur {total}",
-  "BROWSE DATA LIBRARY": "PARCOURIR LA BIBLIOTHÈQUE DE DONNÉES"
+  "BROWSE DATA LIBRARY": "PARCOURIR LA BIBLIOTHÈQUE DE DONNÉES",
+  "Tilt up toward the horizon": "Incliner vers l'horizon",
+  "Tilt down toward top-down view": "Incliner vers la vue du dessus",
+  "Top-down view": "Vue du dessus",
+  "Look left": "Regarder à gauche",
+  "Look right": "Regarder à droite",
+  "Look up": "Regarder vers le haut",
+  "Look down": "Regarder vers le bas",
+  "Map navigation": "Navigation de la carte",
+  "Tilt": "Inclinaison",
+  "Tilt: top-down (bottom) to near horizon (top)": "Inclinaison : vue du dessus (bas) à presque l'horizon (haut)",
+  "Map heading. Drag to rotate, arrow keys turn, Home for north": "Cap de la carte. Faites glisser pour tourner, les flèches font pivoter, Origine pour le nord",
+  "North, 0 degrees": "Nord, 0 degré",
+  "Look around": "Regarder autour",
+  "{heading} degrees from north": "{heading} degrés depuis le nord",
+  "{tilt} degrees from top-down": "{tilt} degrés depuis la vue du dessus"
 }
