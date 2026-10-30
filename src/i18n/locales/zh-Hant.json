@@ -3088,5 +3088,10 @@
   "Open {name} on Acartia": "在 Acartia 上打開 {name}",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "iNaturalist 貢獻者 · 各紀錄個別授權",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist 貢獻者 · Acartia {count}（薩利希海） · 各紀錄個別授權"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist 貢獻者 · Acartia {count}（薩利希海） · 各紀錄個別授權",
+  "Zoom in to a region to load river gauges": "放大到某個區域以載入河流水位站",
+  "USGS Rivers & Streams": "USGS：河流與溪流",
+  "USGS Lakes & Reservoirs": "USGS：湖泊與水庫",
+  "USGS Springs": "USGS：泉水",
+  "Water": "水"
 }
