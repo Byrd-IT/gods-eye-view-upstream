@@ -3383,5 +3383,10 @@
   "ICAO: {id}": "ICAO：{id}",
   "NORAD: {id}": "NORAD：{id}",
   "MMSI: {id}": "MMSI：{id}",
-  "Vessel UUID: {id}": "船舶 UUID：{id}"
+  "Vessel UUID: {id}": "船舶 UUID：{id}",
+  "USGS Rivers & Streams": "USGS：河流与溪流",
+  "USGS Lakes & Reservoirs": "USGS：湖泊与水库",
+  "USGS Springs": "USGS：泉水",
+  "Water": "水",
+  "Zoom in to a region to load river gauges": "放大到某个区域以加载河流水位站"
 }
