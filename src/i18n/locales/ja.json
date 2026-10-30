@@ -3425,5 +3425,10 @@
   "{source} imagery could not be opened": "{source}の画像を開けませんでした",
   "{place} has no position to look for imagery at": "{place}には画像を探す位置がありません",
   "No {source} imagery near {place}": "{place}の近くに{source}の画像はありません",
-  "{reason} (filters on: {filters})": "{reason}（有効なフィルター: {filters}）"
+  "{reason} (filters on: {filters})": "{reason}（有効なフィルター: {filters}）",
+  "Water": "水",
+  "Zoom in to a region to load river gauges": "地域にズームして河川観測所を読み込みます",
+  "USGS Springs": "USGS：湧水",
+  "USGS Rivers & Streams": "USGS：河川・小川",
+  "USGS Lakes & Reservoirs": "USGS：湖・貯水池"
 }
