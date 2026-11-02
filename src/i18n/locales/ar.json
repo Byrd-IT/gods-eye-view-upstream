@@ -3953,5 +3953,8 @@
   "Confirm: remove every added entry from Data Layers": "تأكيد: إزالة كل الإدخالات المُضافة من طبقات البيانات",
   "Remove every added entry from Data Layers": "إزالة كل الإدخالات المُضافة من طبقات البيانات",
   "Showing {shown} of {total}": "عرض {shown} من {total}",
-  "BROWSE DATA LIBRARY": "تصفّح مكتبة البيانات"
+  "BROWSE DATA LIBRARY": "تصفّح مكتبة البيانات",
+  "Clean view: hide the controls": "العرض النظيف: إخفاء عناصر التحكم",
+  "Exit clean view: show the controls": "الخروج من العرض النظيف: إظهار عناصر التحكم",
+  "{label} (V)": "{label} (V)"
 }
