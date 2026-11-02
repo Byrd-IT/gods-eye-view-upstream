@@ -3788,5 +3788,10 @@
   "ICAO: {id}": "ICAO: {id}",
   "NORAD: {id}": "NORAD: {id}",
   "MMSI: {id}": "MMSI: {id}",
-  "Vessel UUID: {id}": "معرّف UUID للسفينة: {id}"
+  "Vessel UUID: {id}": "معرّف UUID للسفينة: {id}",
+  "Zoom in to a region to load river gauges": "قرّب إلى منطقة لتحميل محطات قياس الأنهار",
+  "USGS Rivers & Streams": "USGS: الأنهار والجداول",
+  "USGS Lakes & Reservoirs": "USGS: البحيرات والخزانات",
+  "USGS Springs": "USGS: الينابيع",
+  "Water": "المياه"
 }
