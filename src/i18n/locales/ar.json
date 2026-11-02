@@ -3463,5 +3463,10 @@
   "Open {name} on Acartia": "فتح {name} على Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "مساهمو iNaturalist · التراخيص لكل سجل",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "مساهمو iNaturalist · Acartia {count} (بحر ساليش) · التراخيص لكل سجل"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "مساهمو iNaturalist · Acartia {count} (بحر ساليش) · التراخيص لكل سجل",
+  "Zoom in to a region to load river gauges": "قرّب إلى منطقة لتحميل محطات قياس الأنهار",
+  "USGS Rivers & Streams": "USGS: الأنهار والجداول",
+  "USGS Lakes & Reservoirs": "USGS: البحيرات والخزانات",
+  "USGS Springs": "USGS: الينابيع",
+  "Water": "المياه"
 }
