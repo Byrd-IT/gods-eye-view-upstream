@@ -3981,5 +3981,10 @@
   "Search layers…": "ابحث في الطبقات…",
   "Layer groups": "مجموعات الطبقات",
   "Jump to {name}": "الانتقال إلى {name}",
-  "No layers match": "لا توجد طبقات مطابقة"
+  "No layers match": "لا توجد طبقات مطابقة",
+  "Zoom in to a region to load river gauges": "قرّب إلى منطقة لتحميل محطات قياس الأنهار",
+  "Water": "المياه",
+  "USGS Springs": "USGS: الينابيع",
+  "USGS Lakes & Reservoirs": "USGS: البحيرات والخزانات",
+  "USGS Rivers & Streams": "USGS: الأنهار والجداول"
 }
