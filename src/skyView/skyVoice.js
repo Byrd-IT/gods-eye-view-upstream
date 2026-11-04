@@ -1,8 +1,7 @@
 /**
  * Voice surface of Sky view: one thin adapter over the mounted Sky handle
  * (skyView.js), reachable through the shell hook `window.__gevSky.voice`.
- * No voice tool is registered against it in this tree; it becomes reachable
- * once a tool (for example `control_sky`) is wired to that hook.
+ * The `control_sky` voice tool (src/voice/gevActions.js) calls it there.
  *
  *   open     stand at the map centre and look up
  *   close    leave the sky, back to the map

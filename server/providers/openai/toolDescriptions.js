@@ -665,4 +665,35 @@ export const ACTION_DESCRIPTIONS = {
       'Predict the next pass in 24 hours for one satellite in the loaded catalog, identified by exact NORAD ID or name. Ambiguous names return candidates: ask for a choice rather than selecting one. Defaults to geometric passes; visibleOnly requires estimated illumination and a dark observer sky, which does not guarantee naked-eye visibility. Uses camera location unless coordinates are supplied.',
     $position: 1,
   },
+  control_sky: {
+    description:
+      'Sky view, looking up from the map centre: open or close it, look at a planet, the ISS or a constellation, set the time of night, show or hide constellation lines, or jump to a preset. Say the resulting state.',
+    $position: 1,
+    parameters: {
+      properties: {
+        target: {
+          description: 'For look: a planet, the ISS or a constellation.',
+          $position: 1,
+        },
+        time: {
+          description:
+            'For time: ISO 8601 with a zone, converted from the spoken local time; a date alone is 00:00 UTC.',
+          $position: 1,
+        },
+        live: {
+          description: 'For time: true returns to now and wins over time.',
+          $position: 1,
+        },
+        enabled: {
+          description: 'For lines: true shows them, false hides them.',
+          $position: 1,
+        },
+        preset: {
+          description:
+            'dusk is the end of astronomical twilight; iss starts the next ISS pass and is not a look.',
+          $position: 2,
+        },
+      },
+    },
+  },
 };

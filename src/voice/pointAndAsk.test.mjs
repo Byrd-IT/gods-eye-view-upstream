@@ -348,9 +348,10 @@ test('deixis prompt lint: one short rule, and every sentinel it names exists in 
   // AREAS rule and the area tool descriptions left it at 55,103 as measured
   // below (every tool, osm_query included); main's Sea Marks and Ski Pistes
   // layers bring it to 55,210, ~290 under. A new tool or rule has to fit
-  // under this ceiling.
+  // under this ceiling. Sky view voice (control_sky and its routing sentence,
+  // +1,293 characters) raised it to 56,700.
   const size = instructions.length + JSON.stringify(GEV_REALTIME_TOOLS).length;
-  assert.ok(size <= 55_500, `prompt size ${size}`);
+  assert.ok(size <= 56_700, `prompt size ${size}`);
 });
 
 

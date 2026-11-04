@@ -1601,10 +1601,20 @@ startup bundle.
 - **Clear view.** The eye button, a double-tap on the sky or `H` hides every
   control; `Esc` brings them back. While the sky is shown `H` does not
   toggle the HUD.
+- **Voice.** The `control_sky` tool (schema in `src/voice/actionSchemas.js`,
+  executed in `src/voice/gevActions.js`) drives the sky through
+  `window.__gevSky.voice` (`src/skyView/skyVoice.js`): `open` (the map
+  centre), `close`, `look` at a planet, the ISS or a constellation, `time`
+  (ISO 8601 with a zone, or `live`), `lines` on or off, `preset`
+  (`sunset`, `dusk`, `midnight`, `moonrise`, `iss`) and `status`. It answers
+  `{ ok: false, error }` instead of acting when Sky view is not mounted. Map
+  ISS questions ("track the ISS", "next ISS pass") stay on `track_entity`
+  and `next_iss_pass`.
 
 Gates: `scripts/qa-sky-render.mjs`, `qa-sky-render-series.mjs`, `qa-sky-phone.mjs`,
-`qa-sky-time.mjs`, `qa-sky-passscroll.mjs`, `qa-sky-satsearch.mjs` and
-`qa-sky-livesats-perf.mjs` drive the real app; `node --test
+`qa-sky-time.mjs`, `qa-sky-passscroll.mjs`, `qa-sky-satsearch.mjs`,
+`qa-sky-livesats-perf.mjs` and `qa-sky-voice.mjs` (the `control_sky` voice
+tool, no model turns) drive the real app; `node --test
 src/skyView/*.test.mjs` covers the pure modules. `scripts/build-sky-data.mjs`
 regenerates the star and constellation data.
 
@@ -5557,7 +5567,7 @@ and unreachable upstream (502/504) separately from road geometry.
 
 - **Token flow**: browser fetches a short-lived client secret from `/api/realtime/token`; the Vite middleware uses `OPENAI_API_KEY` by default, or the signed-in local ChatGPT/Codex OAuth access token when OAuth was explicitly selected in Provider Settings, and posts the full session config (instructions, tool schemas, VAD, truncation) to `api.openai.com/v1/realtime/client_secrets`. Both long-lived credentials stay server-side; OAuth minting is loopback-only. SDP exchange goes directly to `api.openai.com/v1/realtime/calls` with the ephemeral token.
 - **Session defaults** (env-tunable): model `gpt-realtime-2` (or `gpt-realtime-2.1-mini` when the MINI tier is selected — see the model-tier entry below), voice `marin`, reasoning effort `low`, semantic VAD with low eagerness, no response interruption, context window truncated to ~3,000 post-instruction tokens with 0.5 retention ratio — the conversational window stays short because map state is fetched live per turn.
-- **Thirty tools** (argument schemas in `src/voice/actionSchemas.js`, served with their descriptions by `server/providers/openai/tools.js`, executed client-side in `src/voice/gevActions.js`): `fly_to_location`, `select_nearest_aircraft`, `adjust_camera_zoom`, `zoom_to_globe`, `set_layer_visibility`, `show_data_layers_menu`, `set_panel_open`, `set_visual_style`, `get_entity_context`, `get_current_view_state`, `set_hud`, `set_cyber_sonar`, `set_detection`, `set_map_stack`, `set_post_processing`, `control_scene`, `control_cctv`, `set_context_mode`, `control_cockpit`, `control_radio`, `track_entity`, `stop_tracking`, `frame_overhead`, `annotate_map`, `clear_annotations`, `move_camera`, `fly_route`, `analyst_query`, `next_iss_pass`, and `next_satellite_pass`.
+- **Thirty tools** (argument schemas in `src/voice/actionSchemas.js`, served with their descriptions by `server/providers/openai/tools.js`, executed client-side in `src/voice/gevActions.js`): `fly_to_location`, `select_nearest_aircraft`, `adjust_camera_zoom`, `zoom_to_globe`, `set_layer_visibility`, `show_data_layers_menu`, `set_panel_open`, `set_visual_style`, `get_entity_context`, `get_current_view_state`, `set_hud`, `set_cyber_sonar`, `set_detection`, `set_map_stack`, `set_post_processing`, `control_scene`, `control_cctv`, `set_context_mode`, `control_cockpit`, `control_radio`, `track_entity`, `stop_tracking`, `frame_overhead`, `annotate_map`, `clear_annotations`, `move_camera`, `fly_route`, `analyst_query`, `next_iss_pass`, `next_satellite_pass`, and `control_sky`.
 
 > **Reading `npm test` totals:** the count depends on the Node major. The two
 > GC-bracketed allocation microbenchmarks (`src/data/focusAllocations.test.mjs`

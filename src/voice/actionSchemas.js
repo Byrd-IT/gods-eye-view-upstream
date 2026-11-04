@@ -978,6 +978,28 @@ const schemas = [
       },
     },
   },
+  {
+    name: 'control_sky',
+    parameters: {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        action: {
+          type: 'string',
+          enum: ['open', 'close', 'look', 'time', 'lines', 'preset', 'status'],
+        },
+        target: { type: 'string', minLength: 1, maxLength: 80 },
+        time: { type: 'string', maxLength: 40 },
+        live: { type: 'boolean' },
+        enabled: { type: 'boolean' },
+        preset: {
+          type: 'string',
+          enum: ['sunset', 'dusk', 'midnight', 'moonrise', 'iss'],
+        },
+      },
+      required: ['action'],
+    },
+  },
 ];
 
 function freeze(value) {

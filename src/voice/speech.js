@@ -888,6 +888,7 @@ const STEP_TITLES = Object.freeze({
   set_map_stack: msg('Change map stack'),
   set_post_processing: msg('Adjust post-processing'),
   control_scene: msg('Control scene'),
+  control_sky: msg('Control sky'),
   control_cctv: msg('Control CCTV'),
   control_radio: msg('Control radio'),
   track_entity: msg('Track contact'),

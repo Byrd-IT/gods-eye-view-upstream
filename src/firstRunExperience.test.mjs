@@ -989,6 +989,7 @@ test('the voice TOOL SCHEMA matches the pinned contract — the mission mapping 
         'resolve_area',
         'find_imagery',
         'osm_query',
+        'control_sky',
       ].includes(tool.name),
   );
   const hudLayout = legacyTools.find((tool) => tool.name === 'set_hud')

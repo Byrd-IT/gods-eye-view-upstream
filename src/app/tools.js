@@ -211,6 +211,7 @@ export function createApplicationTools({
     dataManager,
     sceneDirector,
     annotations,
+    sky: () => window.__gevSky?.voice ?? null,
   });
   defer(() => {
     voiceCommands.stop({ removeUi: true });
