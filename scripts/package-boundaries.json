@@ -1495,14 +1495,7 @@
       "src/ui/stores/dataPacks.js",
       "src/ui/i18n.js"
     ],
-    "external": [
-      "cesium",
-      "vue",
-      "pinia",
-      "vue-i18n",
-      "astronomy-engine",
-      "tz-lookup"
-    ]
+    "external": ["cesium", "vue", "pinia", "vue-i18n"]
   },
   "live-observations": {
     "exports": ["./sources/live"],
@@ -4773,14 +4766,7 @@
       "src/ui/kit/UiSlider.js",
       "src/ui/i18n.js"
     ],
-    "external": [
-      "cesium",
-      "vue",
-      "pinia",
-      "vue-i18n",
-      "astronomy-engine",
-      "tz-lookup"
-    ]
+    "external": ["cesium", "vue", "pinia", "vue-i18n"]
   },
   "ui-panel-chrome": {
     "exports": ["./ui/panel-chrome"],
