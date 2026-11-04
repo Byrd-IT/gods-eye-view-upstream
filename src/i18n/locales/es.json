@@ -3238,5 +3238,6 @@
   "Open {name} on Acartia": "Abrir {name} en Acartia",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "Colaboradores de iNaturalist · licencias por registro",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Colaboradores de iNaturalist · Acartia {count} (mar de Salish) · licencias por registro"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "Colaboradores de iNaturalist · Acartia {count} (mar de Salish) · licencias por registro",
+  "{name} opacity": "Opacidad de {name}"
 }

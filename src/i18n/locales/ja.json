@@ -3088,5 +3088,6 @@
   "Open {name} on Acartia": "Acartiaで{name}を開く",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "iNaturalist の投稿者 · ライセンスは記録ごと",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist の投稿者 · Acartia {count}（セイリッシュ海） · ライセンスは記録ごと"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist の投稿者 · Acartia {count}（セイリッシュ海） · ライセンスは記録ごと",
+  "{name} opacity": "{name}の不透明度"
 }

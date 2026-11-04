@@ -3088,5 +3088,6 @@
   "Open {name} on Acartia": "在 Acartia 上打開 {name}",
   "iNaturalist": "iNaturalist",
   "iNaturalist contributors · licences per record": "iNaturalist 貢獻者 · 各紀錄個別授權",
-  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist 貢獻者 · Acartia {count}（薩利希海） · 各紀錄個別授權"
+  "iNaturalist contributors · Acartia {count} (Salish Sea) · licences per record": "iNaturalist 貢獻者 · Acartia {count}（薩利希海） · 各紀錄個別授權",
+  "{name} opacity": "{name}的不透明度"
 }
