@@ -244,7 +244,9 @@
     "▲ {frp} MW",
     "ICAO: {id}",
     "MMSI: {id}",
-    "NORAD: {id}"
+    "NORAD: {id}",
+    "SOLUNAR",
+    "Solunar"
   ],
   "es": [
     "1 min/s",
@@ -404,7 +406,11 @@
     "iNaturalist",
     "ICAO: {id}",
     "MMSI: {id}",
-    "NORAD: {id}"
+    "NORAD: {id}",
+    "SOLUNAR",
+    "Solunar",
+    "12 h",
+    "24 h"
   ],
   "fr": [
     "1 min/s",
@@ -619,7 +625,9 @@
     "≥ {value} MW",
     "▲ {frp} MW",
     "SATELLITE",
-    "Photo © {photographer}"
+    "Photo © {photographer}",
+    "12 h",
+    "24 h"
   ],
   "it": [
     "1 min/s",
@@ -822,7 +830,9 @@
     "SATELLITE",
     "ICAO: {id}",
     "MMSI: {id}",
-    "NORAD: {id}"
+    "NORAD: {id}",
+    "12 h",
+    "24 h"
   ],
   "ja": [
     "1090 MHz",
@@ -1049,7 +1059,11 @@
     "iNaturalist",
     "ICAO: {id}",
     "MMSI: {id}",
-    "NORAD: {id}"
+    "NORAD: {id}",
+    "SOLUNAR",
+    "Solunar",
+    "12 h",
+    "24 h"
   ],
   "ru": [
     "1900–1945",
