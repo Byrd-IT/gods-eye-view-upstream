@@ -3626,5 +3626,6 @@
   "ICAO: {id}": "ICAO: {id}",
   "NORAD: {id}": "NORAD: {id}",
   "MMSI: {id}": "MMSI: {id}",
-  "Vessel UUID: {id}": "UUID судна: {id}"
+  "Vessel UUID: {id}": "UUID судна: {id}",
+  "{name} opacity": "Непрозрачность: {name}"
 }
