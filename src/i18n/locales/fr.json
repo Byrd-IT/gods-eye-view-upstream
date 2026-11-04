@@ -3726,5 +3726,6 @@
   "Search layers…": "Rechercher des couches…",
   "Layer groups": "Groupes de couches",
   "Jump to {name}": "Aller à {name}",
-  "No layers match": "Aucune couche ne correspond"
+  "No layers match": "Aucune couche ne correspond",
+  "{name} opacity": "Opacité de {name}"
 }

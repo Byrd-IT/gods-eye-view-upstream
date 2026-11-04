@@ -3813,5 +3813,6 @@
   "Search layers…": "Пошук шарів…",
   "Layer groups": "Групи шарів",
   "Jump to {name}": "Перейти до «{name}»",
-  "No layers match": "Немає відповідних шарів"
+  "No layers match": "Немає відповідних шарів",
+  "{name} opacity": "Непрозорість: {name}"
 }

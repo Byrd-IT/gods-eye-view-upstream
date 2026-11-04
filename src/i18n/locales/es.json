@@ -3726,5 +3726,6 @@
   "Search layers…": "Buscar capas…",
   "Layer groups": "Grupos de capas",
   "Jump to {name}": "Ir a {name}",
-  "No layers match": "Ninguna capa coincide"
+  "No layers match": "Ninguna capa coincide",
+  "{name} opacity": "Opacidad de {name}"
 }

@@ -3552,5 +3552,6 @@
   "Search layers…": "レイヤーを検索…",
   "Layer groups": "レイヤーのグループ",
   "Jump to {name}": "{name} へ移動",
-  "No layers match": "一致するレイヤーはありません"
+  "No layers match": "一致するレイヤーはありません",
+  "{name} opacity": "{name}の不透明度"
 }

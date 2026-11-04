@@ -3639,5 +3639,6 @@
   "Search layers…": "Ebenen suchen…",
   "Layer groups": "Ebenengruppen",
   "Jump to {name}": "Zu {name} springen",
-  "No layers match": "Keine passenden Ebenen"
+  "No layers match": "Keine passenden Ebenen",
+  "{name} opacity": "Deckkraft: {name}"
 }
