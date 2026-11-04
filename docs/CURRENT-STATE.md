@@ -1579,9 +1579,16 @@ startup bundle.
   `src/sources/tle.js`) and propagates them with `satellite.js` SGP4. An
   "Overhead now" panel lists what is above the horizon; "Next passes" scans
   48 h for stations and bright objects (`src/data/satellitePass.js`).
-  Magnitudes are estimates (`brightness.js`, class offsets). An RCS table
-  can be injected through `createSatSky({ fetchRcs })`; this host serves
-  none, so objects without it fall back to their class.
+  Magnitudes are estimates (`brightness.js`) from the object's SATCAT radar
+  cross-section; an object with none gets no estimate and passes the
+  naked-eye filter only through its class (stations and visual). The table comes
+  from the same-origin `/api/celestrak-rcs`, which fetches CelesTrak's
+  `satcat/records.php?GROUP=ACTIVE&FORMAT=CSV` on demand, keeps the objects
+  with a positive `RCS`, and caches the result for 7 days in memory and in
+  `.gev-cache/celestrak-satcat-rcs.json` (a stale copy is served if a refresh
+  fails; with no copy it answers 502). If the request fails the Sky view
+  still works and omits all estimates. `createSatSky({ fetchRcs })`
+  can inject another source.
 - **Stars and planets.** 8,920 HYG v4.4 stars to magnitude 6.5, the 88
   western constellations with IAU boundaries (Stellarium), and the Sun,
   Moon and planets from `astronomy-engine`. Search finds constellations,
@@ -1942,18 +1949,19 @@ their GBFS tree: `api.entur.io` to `/mobility/v2/gbfs/` and `api.cyclocity.fr`
 
 ## Upstream body bounds
 
-FIRMS CSV, CelesTrak TLE groups, adsb.lol military responses, TomTom flow
-tiles, OpenSky states/all and adsbdb lookups now read their bodies through the
+FIRMS CSV, CelesTrak TLE groups and SATCAT table, adsb.lol military responses,
+TomTom flow tiles, OpenSky states/all and adsbdb lookups now read their bodies through the
 shared streaming readers in `src/sources/httpBody.js`, so a declared or observed body
 over the cap is refused with `RESPONSE_TOO_LARGE` and cancelled rather than
 buffered. TomTom flow tiles use `readResponseBytesCapped` alongside
 GTFS-Realtime. Each read takes the route's abort signal, so a body still
 streaming when the deadline fires is cancelled. Caps are bounds, not budgets, sized well
 above measured payloads: FIRMS 64 MiB per satellite source, CelesTrak 16 MiB
-per group, OpenSky `states/all` 8 MiB, adsb.lol `/v2/mil` 8 MiB, TomTom tiles
-8 MiB and adsbdb lookups 1 MiB. Where a route already had a deadline (FIRMS
-60 s, CelesTrak 20 s, TomTom 15 s, adsbdb 8 s, and each 10 s OpenSky
-`states/all` attempt) it already bounded the body read, because aborting a
+per group and 8 MiB for the SATCAT table, OpenSky `states/all` 8 MiB, adsb.lol
+`/v2/mil` 8 MiB, TomTom tiles 8 MiB and adsbdb lookups 1 MiB. Where a route
+already had a deadline (FIRMS 60 s, CelesTrak 20 s per group and 30 s for the
+SATCAT table, TomTom 15 s, adsbdb 8 s, and each 10 s OpenSky `states/all`
+attempt) it already bounded the body read, because aborting a
 fetch signal also aborts its body; the capped reader takes the same signal.
 The adsb.lol military poll, which had no deadline, now waits at most 12
 seconds for headers and body together. An oversized OpenSky snapshot is not
@@ -2139,6 +2147,14 @@ retain their established behavior.
 `server/providers/space/` owns the CelesTrak TLE and Launch Library 2 Node
 proxies. Their routes, six-hour/15-minute caches, disk storage, stale fallback,
 request coalescing and optional LL2 server token retain existing behavior.
+The CelesTrak plugin also serves `/api/celestrak-rcs` (GET, exact path; other
+paths 404): the SATCAT radar cross-sections as `{ fetchedAt, rows, withRcs,
+rcs: { noradId: m2 } }`, from one fixed CelesTrak request that refuses
+redirects (one comes back as a status and is never followed). An HTTP error pauses the
+TLE groups as well, as CelesTrak asks; a redirect, 403 or 404 also holds this
+route for six hours; a timeout or a body that does not parse (or has no RCS at
+all) pauses only this route for a minute. The table is cached for seven days,
+coalesced, and served stale when a refresh fails.
 The Node-only `gods-eye-view/server/providers/space` export supplies factories;
 `sources/space` supplies fixed upstream URL builders with no I/O or environment
 access. Callers retain validation, transport and response policy.

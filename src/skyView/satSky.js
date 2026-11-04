@@ -1,15 +1,15 @@
 /**
  * Sky view satellites, main-thread side: owns the
  * module worker, feeds it the TLE groups from the existing same-origin
- * /api/celestrak/<group> endpoints (no new third-party calls; the server
- * proxy's cache applies as for the satellites layer), runs the
- * tick policy, and turns packed tick results into drawable objects with
- * az/el extrapolated between ticks.
+ * /api/celestrak/<group> endpoints (the browser calls only same-origin
+ * endpoints; the server proxy's cache applies as for the satellites layer),
+ * runs the tick policy, and turns packed tick results into drawable objects
+ * with az/el extrapolated between ticks.
  *
- * also takes the SATCAT radar cross-sections from an injected
- * `fetchRcs` (brightness estimates; the host serves none yet, so brightness
- * is omitted and the naked-eye filter falls back to classes), and drives the
- * worker's "Next passes" scan (progressive
+ * It also takes the SATCAT radar cross-sections from `fetchRcs` (by default
+ * the same-origin /api/celestrak-rcs cache) for brightness estimates; when
+ * that fails, brightness is omitted and the naked-eye filter falls back to
+ * classes. And it drives the worker's "Next passes" scan (progressive
  * results, cached in the worker; re-requested on a new catalogue, a time
  * jump or when Sky time leaves the scanned window).
  *
@@ -52,6 +52,21 @@ export async function fetchCelestrakText(path) {
   const response = await globalThis.fetch(`/api/celestrak/${path}`);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.text();
+}
+
+/**
+ * SATCAT radar cross-sections from the same-origin proxy:
+ * `{ rcs: { noradId: m2 }, withRcs?, fetchedAt? }`. Rejects on an HTTP error
+ * or a body without an `rcs` object, so the caller leaves brightness omitted.
+ */
+export async function fetchCelestrakRcs() {
+  const response = await globalThis.fetch('/api/celestrak-rcs');
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const body = await response.json();
+  const table = body?.rcs;
+  if (!table || typeof table !== 'object' || Array.isArray(table))
+    throw new Error('bad rcs body');
+  return body;
 }
 
 /**
@@ -105,7 +120,7 @@ export function unpackRecords(records, timeMs) {
 export function createSatSky({
   createWorker = defaultCreateWorker,
   fetchText = fetchCelestrakText,
-  fetchRcs = null,
+  fetchRcs = fetchCelestrakRcs,
   timers = globalThis,
   getTime = () => Date.now(),
   onChange = () => {},

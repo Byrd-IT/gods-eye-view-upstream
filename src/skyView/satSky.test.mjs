@@ -7,6 +7,7 @@ import {
   MAX_EXTRAPOLATE_MS,
   createSatSky,
   extrapolateAzEl,
+  fetchCelestrakRcs,
   unpackRecords,
 } from './satSky.js';
 import { createSatWorkerHandler } from './satWorker.js';
@@ -326,6 +327,90 @@ test('RCS failure only drops the estimates (status error), satellites still load
   assert.equal(sky.status, 'ready');
   assert.ok(sky.objectsAt(T0).every((o) => o.estMag == null));
   assert.ok(!worker.posted.some((m) => m.type === 'rcs'));
+});
+
+/** Stub global fetch for the default /api/celestrak-rcs reader. */
+function stubFetch(t, respond) {
+  const requests = [];
+  t.mock.method(globalThis, 'fetch', async (url, init) => {
+    requests.push({ url: String(url), init });
+    return respond(String(url));
+  });
+  return requests;
+}
+
+test('fetchCelestrakRcs reads the same-origin proxy and returns the table', async (t) => {
+  const body = {
+    fetchedAt: 1,
+    rows: 2,
+    withRcs: 1,
+    rcs: { 25544: 399.0524 },
+  };
+  const requests = stubFetch(t, () => Response.json(body));
+  assert.deepEqual(await fetchCelestrakRcs(), body);
+  assert.deepEqual(
+    requests.map((r) => r.url),
+    ['/api/celestrak-rcs'],
+  );
+});
+
+test('fetchCelestrakRcs rejects HTTP errors and bodies without an rcs table', async (t) => {
+  const answers = [
+    () => new Response('{}', { status: 502 }),
+    () => new Response('<html>', { status: 200 }),
+    () => Response.json(null),
+    () => Response.json({}),
+    () => Response.json({ rcs: null }),
+    () => Response.json({ rcs: [1, 2] }),
+    () => Response.json({ rcs: 'x' }),
+  ];
+  let next = 0;
+  stubFetch(t, () => answers[next]());
+  for (; next < answers.length; next++)
+    await assert.rejects(fetchCelestrakRcs(), undefined, `answer ${next}`);
+});
+
+test('by default the RCS table comes from /api/celestrak-rcs and reaches the worker once', async (t) => {
+  const requests = stubFetch(t, () =>
+    Response.json({ fetchedAt: 5, withRcs: 1, rcs: { 25544: 399.0524 } }),
+  );
+  const { worker, sky } = setup();
+  sky.start(OBS);
+  await pump(worker);
+  sky.setSets({ starlink: true });
+  await pump(worker);
+  assert.deepEqual(
+    requests.map((r) => r.url),
+    ['/api/celestrak-rcs'],
+  );
+  assert.equal(sky.rcs.status, 'ready');
+  assert.equal(sky.rcs.fetchedAt, 5);
+  assert.equal(sky.rcs.matched, 1, 'the ISS is in the catalogue');
+  const sent = worker.posted.filter((m) => m.type === 'rcs');
+  assert.equal(sent.length, 1);
+  assert.deepEqual(sent[0].rcs, { 25544: 399.0524 });
+});
+
+test('by default a failing /api/celestrak-rcs only leaves brightness omitted', async (t) => {
+  for (const respond of [
+    () => new Response('nope', { status: 502 }),
+    () => Response.json({ error: 'x' }),
+    () => {
+      throw new TypeError('Failed to fetch');
+    },
+  ]) {
+    stubFetch(t, respond);
+    const { worker, sky } = setup();
+    sky.start(OBS);
+    await pump(worker);
+    assert.equal(sky.rcs.status, 'error');
+    assert.equal(sky.status, 'ready');
+    assert.ok(sky.objectsAt(T0).length > 0);
+    assert.ok(sky.objectsAt(T0).every((o) => o.estMag == null));
+    assert.ok(!worker.posted.some((m) => m.type === 'rcs'));
+    sky.stop();
+    t.mock.restoreAll();
+  }
 });
 
 /**

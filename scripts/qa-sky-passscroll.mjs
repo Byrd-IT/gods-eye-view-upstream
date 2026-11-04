@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Sky view pass-selection scroll QA, headless Chromium against a
- * running GEV dev server (live /api/celestrak/<group>; no RCS source, so brightness
- * falls back to the satellite class):
+ * running GEV dev server (live /api/celestrak/<group> and /api/celestrak-rcs; an object without
+ * an RCS has no estimate and is eligible through its satellite class):
  *
  *   node scripts/qa-sky-passscroll.mjs --url http://127.0.0.1:4381 --out <dir>
  *        [--sizes 500x757,960x757,960x400,844x390]

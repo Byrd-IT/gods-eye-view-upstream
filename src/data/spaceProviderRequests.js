@@ -6,6 +6,19 @@ export function celestrakTleUrl(group) {
   return url;
 }
 
+/**
+ * CelesTrak SATCAT for the active catalog as CSV: the documented query form
+ * `satcat/records.php?{QUERY}=VALUE&FORMAT=CSV` with `GROUP=ACTIVE`
+ * (https://celestrak.org/satcat/satcat-format.php). The CSV carries the radar
+ * cross-section (`RCS`, m², empty when unknown) beside `NORAD_CAT_ID`.
+ */
+export function celestrakSatcatUrl() {
+  const url = new URL('https://celestrak.org/satcat/records.php');
+  url.searchParams.set('GROUP', 'ACTIVE');
+  url.searchParams.set('FORMAT', 'CSV');
+  return url;
+}
+
 export function launchLibraryRecentUrl(end) {
   // Stable minute boundaries let different installations share LL2's cache.
   const roundedEnd = new Date(Math.floor(end.getTime() / 60000) * 60000);
