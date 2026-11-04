@@ -3777,5 +3777,6 @@
   "Confirm: remove every added entry from Data Layers": "Підтвердити: вилучити всі додані записи з «Шарів даних»",
   "Remove every added entry from Data Layers": "Вилучити всі додані записи з «Шарів даних»",
   "Showing {shown} of {total}": "Показано {shown} з {total}",
-  "BROWSE DATA LIBRARY": "ВІДКРИТИ БІБЛІОТЕКУ ДАНИХ"
+  "BROWSE DATA LIBRARY": "ВІДКРИТИ БІБЛІОТЕКУ ДАНИХ",
+  "{name} opacity": "Непрозорість: {name}"
 }
