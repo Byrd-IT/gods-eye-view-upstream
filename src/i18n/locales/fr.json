@@ -3692,5 +3692,6 @@
   "Confirm: remove every added entry from Data Layers": "Confirmer : retirer du panneau Couches toutes les entrées ajoutées",
   "Remove every added entry from Data Layers": "Retirer du panneau Couches toutes les entrées ajoutées",
   "Showing {shown} of {total}": "Affichées : {shown} sur {total}",
-  "BROWSE DATA LIBRARY": "PARCOURIR LA BIBLIOTHÈQUE DE DONNÉES"
+  "BROWSE DATA LIBRARY": "PARCOURIR LA BIBLIOTHÈQUE DE DONNÉES",
+  "{name} opacity": "Opacité de {name}"
 }

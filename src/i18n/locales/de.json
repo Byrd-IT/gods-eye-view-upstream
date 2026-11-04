@@ -3605,5 +3605,6 @@
   "Confirm: remove every added entry from Data Layers": "Bestätigen: alle hinzugefügten Einträge aus Datenebenen entfernen",
   "Remove every added entry from Data Layers": "Alle hinzugefügten Einträge aus Datenebenen entfernen",
   "Showing {shown} of {total}": "{shown} von {total} angezeigt",
-  "BROWSE DATA LIBRARY": "DATENBIBLIOTHEK DURCHSUCHEN"
+  "BROWSE DATA LIBRARY": "DATENBIBLIOTHEK DURCHSUCHEN",
+  "{name} opacity": "Deckkraft: {name}"
 }
