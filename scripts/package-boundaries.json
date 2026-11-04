@@ -1080,6 +1080,11 @@
       "src/data/headingDegrees.js",
       "src/data/distanceFormat.js",
       "src/i18n/marker.js",
+      "src/solunar/panel.js",
+      "src/solunar/rating.js",
+      "src/solunar/solunarDay.js",
+      "src/solunar/solunarShell.js",
+      "src/solunar/zone.js",
       "src/ui/mobileShell.js",
       "src/exclusiveSurfaces.js",
       "src/ui/placeNames.js",
@@ -1343,7 +1348,14 @@
       "src/overlays/worldOverlayChrome.js",
       "src/layers/wildlifeSightings/photoText.js"
     ],
-    "external": ["cesium", "vue", "pinia", "vue-i18n"]
+    "external": [
+      "cesium",
+      "vue",
+      "pinia",
+      "vue-i18n",
+      "astronomy-engine",
+      "tz-lookup"
+    ]
   },
   "ui-styles": {
     "exports": ["./ui/styles"],
@@ -1483,7 +1495,14 @@
       "src/ui/stores/dataPacks.js",
       "src/ui/i18n.js"
     ],
-    "external": ["cesium", "vue", "pinia", "vue-i18n"]
+    "external": [
+      "cesium",
+      "vue",
+      "pinia",
+      "vue-i18n",
+      "astronomy-engine",
+      "tz-lookup"
+    ]
   },
   "live-observations": {
     "exports": ["./sources/live"],
@@ -2564,6 +2583,11 @@
       "src/data/fleetTrailAnchors.js",
       "src/data/fleetModelInstances.js",
       "src/app/layers/fleetModels.js",
+      "src/solunar/panel.js",
+      "src/solunar/rating.js",
+      "src/solunar/solunarDay.js",
+      "src/solunar/solunarShell.js",
+      "src/solunar/zone.js",
       "src/sources/adsbFields.js",
       "src/data/headingDegrees.js",
       "src/data/distanceFormat.js",
@@ -3806,6 +3830,7 @@
       "src/layers/vessels/photos.js"
     ],
     "external": [
+      "astronomy-engine",
       "hls.js",
       "@mapbox/vector-tile",
       "cesium",
@@ -3817,6 +3842,7 @@
       "@jtarrio/webrtlsdr",
       "hyparquet",
       "fzstd",
+      "tz-lookup",
       "vue",
       "pinia",
       "vue-i18n"
@@ -4747,7 +4773,14 @@
       "src/ui/kit/UiSlider.js",
       "src/ui/i18n.js"
     ],
-    "external": ["cesium", "vue", "pinia", "vue-i18n"]
+    "external": [
+      "cesium",
+      "vue",
+      "pinia",
+      "vue-i18n",
+      "astronomy-engine",
+      "tz-lookup"
+    ]
   },
   "ui-panel-chrome": {
     "exports": ["./ui/panel-chrome"],
