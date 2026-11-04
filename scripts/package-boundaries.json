@@ -1180,7 +1180,15 @@
       "src/sources/tle.js",
       "src/data/satellitePass.js"
     ],
-    "external": ["cesium", "vue", "pinia", "vue-i18n", "astronomy-engine", "geomagnetism", "satellite.js"]
+    "external": [
+      "cesium",
+      "vue",
+      "pinia",
+      "vue-i18n",
+      "astronomy-engine",
+      "geomagnetism",
+      "satellite.js"
+    ]
   },
   "ui-styles": {
     "exports": ["./ui/styles"],
