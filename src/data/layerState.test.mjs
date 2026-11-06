@@ -30,6 +30,7 @@ import { stampInitialShareGesture } from '../navigationPolicy.js';
 import { MAX_SINCE_DAYS } from '../layers/streetLevel/policy.js';
 import { SINCE_STOPS } from '../ui/streetLevelPresentation.js';
 import { FIRMS_CONFIDENCE_MODES, MIN_FRP_MW_MAX } from './firmsIntensity.js';
+import { COORDINATED_LAYER_TOKEN_IDS } from '../testSupport/coordinatedLayerTokens.mjs';
 
 function deferred() {
   let resolve;
@@ -243,17 +244,26 @@ test('production registry is exact, canonical, and rejects incomplete contracts'
   for (const [id, token] of Object.entries(LEGACY_LAYER_STATE_TOKENS)) {
     assert.equal(LAYER_STATE_TOKEN_RESERVATIONS[id], token);
   }
-  assert.equal(nextLayerStateToken(), '00');
+  assert.equal(nextLayerStateToken(), '07');
+  // Exercise the digit-to-pair boundary against the published ledger only, so
+  // these scenarios do not depend on the batch reserved by the coordination PR.
+  const publishedFixture = Object.fromEntries(
+    Object.entries(LAYER_STATE_TOKEN_RESERVATIONS).filter(
+      ([id]) => !COORDINATED_LAYER_TOKEN_IDS.has(id),
+    ),
+  );
+  assert.equal(Object.keys(publishedFixture).length, 36);
+  assert.equal(nextLayerStateToken(publishedFixture), '00');
   assert.equal(
     nextLayerStateToken({
-      ...LAYER_STATE_TOKEN_RESERVATIONS,
+      ...publishedFixture,
       alpha: '9',
       bravo: '00',
     }),
     '01',
   );
   const digitsExhausted = {
-    ...LAYER_STATE_TOKEN_RESERVATIONS,
+    ...publishedFixture,
     ...Object.fromEntries([...'9'].map((digit) => [`prior-${digit}`, digit])),
   };
   assert.equal(nextLayerStateToken(digitsExhausted), '00');
@@ -304,8 +314,8 @@ test('production registry is exact, canonical, and rejects incomplete contracts'
     true,
   );
   assert.equal(
-    validateLayerStateAllocations(LAYER_STATE_TOKEN_RESERVATIONS, {
-      ...LAYER_STATE_TOKEN_RESERVATIONS,
+    validateLayerStateAllocations(publishedFixture, {
+      ...publishedFixture,
       future: '00',
       next: '01',
     }),
@@ -313,8 +323,8 @@ test('production registry is exact, canonical, and rejects incomplete contracts'
   );
   assert.throws(
     () =>
-      validateLayerStateAllocations(LAYER_STATE_TOKEN_RESERVATIONS, {
-        ...LAYER_STATE_TOKEN_RESERVATIONS,
+      validateLayerStateAllocations(publishedFixture, {
+        ...publishedFixture,
         future: '01',
       }),
     /next free token 00/,
@@ -341,8 +351,8 @@ test('production registry is exact, canonical, and rejects incomplete contracts'
   assert.throws(
     () =>
       validateLayerStateAllocations(
-        { ...LAYER_STATE_TOKEN_RESERVATIONS, merged: '9' },
-        { ...LAYER_STATE_TOKEN_RESERVATIONS, merged: '9', competing: '9' },
+        { ...publishedFixture, merged: '9' },
+        { ...publishedFixture, merged: '9', competing: '9' },
       ),
     /next free token 00/,
   );

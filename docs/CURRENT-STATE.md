@@ -5607,11 +5607,14 @@ and unreachable upstream (502/504) separately from road geometry.
   block its siblings.
 - Layer tokens are permanent public compatibility identifiers. The reservation
   JSON ledger at `src/data/layerStateTokenReservations.json` pins all existing
-  one-character assignments (all letters plus `0`, `1` and
-  `2` on current `main`) even if a layer is later removed. New layers allocate
-  the remaining unreserved single-character digits first (`3` through `9` on
-  current `main`), then the next unreserved two-character
-  base-36 token (`00` through `zz`) after rebasing onto the merge-time `main`;
+  one-character assignments (all letters and every digit `0` through `9`) even
+  if a layer is later removed. New layers allocate the remaining unreserved
+  single-character digits first (none are left), then the next unreserved
+  two-character base-36 token (`00` through `zz`) after rebasing onto the
+  merge-time `main`; `docs/LAYER-TOKEN-COORDINATION.md` lists the batch of
+  two-character tokens (`00` through `06`) reserved ahead of five pending layer
+  PRs, so the next free token is `07`, and reservations alone do not register
+  or enable a layer;
   the dot-delimited v2 codec accepts both widths without changing existing
   links or the schema version. The contributor
   check reads the complete published JSON ledger from `origin/main`, including
@@ -5620,12 +5623,14 @@ and unreachable upstream (502/504) separately from road geometry.
   historical shapes fail closed.
   Pull-request CI runs this check against `origin/main`.
 - `scripts/qa-layer-token-twochar.mjs` simulates exhaustion of the earlier
-  digit slots and injects a no-network `00` layer only into isolated dev-browser
-  responses. It proves encoding, a cold-recipient reload, restoration, explicit
-  OFF, and legacy-token compatibility. This is synthetic
-  end-to-end evidence, not production allocation: `00` remains unreserved until
-  the first eligible real layer receives it after the free digits through the
-  normal allocation process and passes its own application share/reload check.
+  digit slots and injects a no-network layer on the first token still free in
+  the production ledger (`07` after the coordination batch; the script derives
+  it) only into isolated dev-browser responses. It proves encoding, a
+  cold-recipient reload, restoration, explicit OFF, and legacy-token
+  compatibility. This is synthetic end-to-end evidence, not production
+  allocation: that token remains unreserved until the next eligible real layer
+  receives it through the normal allocation process and passes its own
+  application share/reload check.
 - Stable visible options are limited to aircraft 3D mode, selected civilian and
   military flight IDs, Satellite catalog and selection, CCTV coverage/projection/
   auto-hop, and Radio filter/volume. Playback and tuning, live-data health,

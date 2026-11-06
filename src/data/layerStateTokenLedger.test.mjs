@@ -14,12 +14,19 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import test from 'node:test';
 import {
   LEGACY_LAYER_STATE_TOKENS,
+  LAYER_STATE_REGISTRY,
   LAYER_STATE_TOKEN_ALPHABET,
   LAYER_STATE_TOKEN_RESERVATIONS,
+  decodeLayerStateParams,
   nextLayerStateToken,
   parseLayerStateTokenReservations,
   validateLayerStateAllocations,
+  validateLayerStateRegistry,
 } from './layerState.js';
+import {
+  COORDINATED_LAYER_TOKEN_IDS,
+  COORDINATED_LAYER_TOKEN_ROWS,
+} from '../testSupport/coordinatedLayerTokens.mjs';
 import {
   PRE_LEDGER_LAYER_STATE_TOKENS,
   checkLayerStateTokens,
@@ -97,7 +104,16 @@ function withPublishedBase(
   }
 }
 
-const preWildlifeRows = reservationRows.filter(
+// The coordination batch reserves these tokens before the feature PRs land.
+// Synthetic merge-race fixtures start from the published ledger only (all
+// rows on main before the batch); the complete production ledger, including
+// the batch, is pinned independently below.
+const coordinatedRows = COORDINATED_LAYER_TOKEN_ROWS;
+const publishedRows = reservationRows.filter(
+  ([id]) => !COORDINATED_LAYER_TOKEN_IDS.has(id),
+);
+const publishedReservations = parseLayerStateTokenReservations(publishedRows);
+const preWildlifeRows = publishedRows.filter(
   ([id]) => id !== 'wildlife-sightings',
 );
 
@@ -137,7 +153,7 @@ test('reservation ledger is complete, pinned, and rejects duplicate or malformed
     { ...parseLayerStateTokenReservations(reservationRows) },
     { ...LAYER_STATE_TOKEN_RESERVATIONS },
   );
-  assert.equal(Object.keys(LAYER_STATE_TOKEN_RESERVATIONS).length, 36);
+  assert.equal(Object.keys(LAYER_STATE_TOKEN_RESERVATIONS).length, 43);
   assert.deepEqual(
     { ...LAYER_STATE_TOKEN_RESERVATIONS },
     {
@@ -150,6 +166,13 @@ test('reservation ledger is complete, pinned, and rejects duplicate or malformed
       'ski-pistes': '7',
       'drone-airspace': '8',
       'wildlife-sightings': '9',
+      'local-usgs-lakes': '00',
+      'local-usgs-springs': '01',
+      'local-usgs-water': '02',
+      'caba-traffic-enforcement': '03',
+      'river-levels': '04',
+      shipwrecks: '05',
+      'air-accidents': '06',
     },
   );
   assert.throws(
@@ -175,9 +198,9 @@ test('reservation ledger is complete, pinned, and rejects duplicate or malformed
     /Duplicate layer-state token reservation/,
   );
   assert.equal(
-    parseLayerStateTokenReservations([...reservationRows, ['future', '00']])
+    parseLayerStateTokenReservations([...reservationRows, ['future', '07']])
       .future,
-    '00',
+    '07',
   );
   assert.throws(
     () =>
@@ -399,7 +422,7 @@ test('an isolated valid two-character fixture round-trips an l field beyond the 
 test('checker reads a complete future base ledger and rejects retired-token reuse', () => {
   withPublishedBase(
     {
-      rows: [...reservationRows, ['retired-layer', '00']],
+      rows: [...publishedRows, ['retired-layer', '00']],
       source:
         'export const LAYER_STATE_TOKEN_RESERVATIONS = Object.freeze({ ["retired-layer"]: "00" });\n',
     },
@@ -410,7 +433,7 @@ test('checker reads a complete future base ledger and rejects retired-token reus
       assert.throws(
         () =>
           validateLayerStateAllocations(published, {
-            ...LAYER_STATE_TOKEN_RESERVATIONS,
+            ...publishedReservations,
             newcomer: '00',
           }),
         /changed or removed/,
@@ -440,10 +463,88 @@ test('checker fails closed on unknown or malformed published ledgers', () => {
       /no recognizable layer-state token ledger/,
     );
   });
-  withPublishedBase({ rows: [...reservationRows, ['future', 'a']] }, (cwd) => {
+  withPublishedBase({ rows: [...publishedRows, ['future', 'a']] }, (cwd) => {
     assert.throws(
       () => readPublishedLayerStateReservations('HEAD', cwd),
       /Duplicate layer-state token reservation/,
     );
   });
+});
+
+function* permutations(items) {
+  if (items.length === 0) yield [];
+  for (let i = 0; i < items.length; i++) {
+    for (const tail of permutations(items.filter((_, index) => index !== i))) {
+      yield [items[i], ...tail];
+    }
+  }
+}
+
+test('coordinated reservations allow every feature merge order without reallocating tokens', () => {
+  assert.equal(nextLayerStateToken(), '07');
+  assert.equal(validateLayerStateAllocations(publishedReservations), true);
+  assert.equal(
+    validateLayerStateAllocations(
+      publishedReservations,
+      LAYER_STATE_TOKEN_RESERVATIONS,
+    ),
+    true,
+    'the batch extends the published ledger without changing any published row',
+  );
+  // #1316 adds its three layers together; each other feature lands alone.
+  const groups = [
+    coordinatedRows.slice(0, 3),
+    ...coordinatedRows.slice(3).map((row) => [row]),
+  ];
+  let orders = 0;
+  for (const order of permutations(groups)) {
+    let registry = [...LAYER_STATE_REGISTRY];
+    for (const group of order) {
+      // Mirror how the real registry is kept: sorted by layer id.
+      registry = [
+        ...registry,
+        ...group.map(([id, token]) => ({
+          id,
+          token,
+          disposition: 'enabled-only',
+        })),
+      ].sort((a, b) => a.id.localeCompare(b.id));
+      assert.equal(
+        validateLayerStateRegistry(registry, LAYER_STATE_TOKEN_RESERVATIONS),
+        true,
+      );
+    }
+    assert.equal(registry.length, 43);
+    orders++;
+  }
+  assert.equal(orders, 120);
+  // Every order ends with the same ledger, so merge order cannot change a
+  // token; what protects the batch is that a branch can neither drop nor
+  // change a reserved row.
+  for (const [id] of coordinatedRows) {
+    const withoutRow = Object.fromEntries(
+      Object.entries(LAYER_STATE_TOKEN_RESERVATIONS).filter(
+        ([reservedId]) => reservedId !== id,
+      ),
+    );
+    assert.throws(
+      () =>
+        validateLayerStateAllocations(
+          LAYER_STATE_TOKEN_RESERVATIONS,
+          withoutRow,
+        ),
+      /changed or removed/,
+      `a feature branch that drops ${id} must be rejected`,
+    );
+  }
+  assert.equal(
+    LAYER_STATE_REGISTRY.length,
+    36,
+    'reservations do not activate layers',
+  );
+  assert.equal(
+    decodeLayerStateParams(new URLSearchParams('v=2&l=02')),
+    null,
+    'an inactive reservation must not decode as an enabled layer',
+  );
 });
