@@ -1275,6 +1275,7 @@
       "src/keylessGeocoder.js",
       "src/data/placeNames.js",
       "src/data/satelliteClass.js",
+      "src/layers/satellites/classes.js",
       "src/sources/tle.js",
       "src/data/satellitePass.js"
     ],
