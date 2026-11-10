@@ -3699,5 +3699,20 @@
   "Reset view reloads the app without the view restored from the address bar.": "\"איפוס תצוגה\" טוען מחדש את האפליקציה בלי התצוגה ששוחזרה משורת הכתובת.",
   "Reload": "טען מחדש",
   "Retry": "נסה שוב",
-  "Reset view": "איפוס תצוגה"
+  "Reset view": "איפוס תצוגה",
+  "Tilt up toward the horizon": "הטה מעלה לכיוון האופק",
+  "Tilt down toward top-down view": "הטה מטה לכיוון תצוגה מלמעלה",
+  "Top-down view": "תצוגה מלמעלה",
+  "Look left": "הבט שמאלה",
+  "Look right": "הבט ימינה",
+  "Look up": "הבט למעלה",
+  "Look down": "הבט למטה",
+  "Map navigation": "ניווט במפה",
+  "Tilt": "הטייה",
+  "Tilt: top-down (bottom) to near horizon (top)": "הטייה: מתצוגה מלמעלה (בחלק התחתון) ועד כמעט לאופק (בחלק העליון)",
+  "Map heading. Drag to rotate, arrow keys turn, Home for north": "כיוון המפה. גרירה לסיבוב, מקשי החצים לפנייה, Home לכיוון צפון",
+  "North, 0 degrees": "צפון, 0 מעלות",
+  "Look around": "הסתכל סביב",
+  "{heading} degrees from north": "{heading} מעלות מצפון",
+  "{tilt} degrees from top-down": "{tilt} מעלות מתצוגה מלמעלה"
 }
