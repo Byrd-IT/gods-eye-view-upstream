@@ -3545,5 +3545,10 @@
   "ICAO: {id}": "ICAO: {id}",
   "NORAD: {id}": "NORAD: {id}",
   "MMSI: {id}": "MMSI: {id}",
-  "Vessel UUID: {id}": "UUID של כלי השיט: {id}"
+  "Vessel UUID: {id}": "UUID של כלי השיט: {id}",
+  "USGS Rivers & Streams": "נהרות ונחלים של USGS",
+  "USGS Lakes & Reservoirs": "אגמים ומאגרי מים של USGS",
+  "USGS Springs": "מעיינות של USGS",
+  "Water": "מים",
+  "Zoom in to a region to load river gauges": "התקרבו לאזור כדי לטעון מדי מפלס נהרות"
 }
