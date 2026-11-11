@@ -3633,5 +3633,10 @@
   "Search layers…": "Sök lager…",
   "Layer groups": "Lagergrupper",
   "Jump to {name}": "Gå till {name}",
-  "No layers match": "Inga lager matchar"
+  "No layers match": "Inga lager matchar",
+  "USGS Lakes & Reservoirs": "USGS sjöar och reservoarer",
+  "Zoom in to a region to load river gauges": "Zooma in på en region för att läsa in flodmätare",
+  "USGS Rivers & Streams": "USGS floder och vattendrag",
+  "USGS Springs": "USGS källor",
+  "Water": "Vatten"
 }
