@@ -3720,5 +3720,10 @@
   "Search layers…": "חיפוש שכבות…",
   "Layer groups": "קבוצות שכבות",
   "Jump to {name}": "מעבר אל {name}",
-  "No layers match": "אין שכבות תואמות"
+  "No layers match": "אין שכבות תואמות",
+  "USGS Lakes & Reservoirs": "אגמים ומאגרי מים של USGS",
+  "Water": "מים",
+  "USGS Springs": "מעיינות של USGS",
+  "USGS Rivers & Streams": "נהרות ונחלים של USGS",
+  "Zoom in to a region to load river gauges": "התקרבו לאזור כדי לטעון מדי מפלס נהרות"
 }
