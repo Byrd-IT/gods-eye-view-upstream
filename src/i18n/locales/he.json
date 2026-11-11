@@ -3587,5 +3587,10 @@
   "{source} imagery could not be opened": "לא ניתן היה לפתוח את הצילומים של {source}",
   "{place} has no position to look for imagery at": "ל-{place} אין מיקום לחיפוש צילומים",
   "No {source} imagery near {place}": "אין צילומים של {source} ליד {place}",
-  "{reason} (filters on: {filters})": "{reason} (מסננים פעילים: {filters})"
+  "{reason} (filters on: {filters})": "{reason} (מסננים פעילים: {filters})",
+  "Water": "מים",
+  "USGS Springs": "מעיינות של USGS",
+  "USGS Rivers & Streams": "נהרות ונחלים של USGS",
+  "USGS Lakes & Reservoirs": "אגמים ומאגרי מים של USGS",
+  "Zoom in to a region to load river gauges": "התקרבו לאזור כדי לטעון מדי מפלס נהרות"
 }
