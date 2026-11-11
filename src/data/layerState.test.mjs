@@ -203,8 +203,8 @@ function encode(state) {
 
 test('production registry is exact, canonical, and rejects incomplete contracts', async () => {
   assert.equal(validateLayerStateRegistry(), true);
-  assert.equal(REGISTERED_LAYER_IDS.length, 38);
-  assert.equal(new Set(REGISTERED_LAYER_IDS).size, 38);
+  assert.equal(REGISTERED_LAYER_IDS.length, 41);
+  assert.equal(new Set(REGISTERED_LAYER_IDS).size, 41);
   assert.ok(REGISTERED_LAYER_IDS.includes('transit'));
   assert.ok(REGISTERED_LAYER_IDS.includes('local-usgs-water'));
   assert.deepEqual(REGISTERED_LAYER_IDS, [...REGISTERED_LAYER_IDS].sort());
@@ -244,12 +244,15 @@ test('production registry is exact, canonical, and rejects incomplete contracts'
   for (const [id, token] of Object.entries(LEGACY_LAYER_STATE_TOKENS)) {
     assert.equal(LAYER_STATE_TOKEN_RESERVATIONS[id], token);
   }
-  // News holds 00 and Shipwrecks 01, the first pairs: the next token is 02.
-  assert.equal(nextLayerStateToken(), '02');
-  // The allocation rules below read the ledger before either took a pair.
+  // News and Shipwrecks hold 00/01; the three USGS layers hold 02/03/04.
+  assert.equal(nextLayerStateToken(), '05');
+  // The allocation rules below read the ledger before those pairs were taken.
   const beforeNews = { ...LAYER_STATE_TOKEN_RESERVATIONS };
   delete beforeNews.news;
   delete beforeNews.shipwrecks;
+  delete beforeNews['local-usgs-water'];
+  delete beforeNews['local-usgs-lakes'];
+  delete beforeNews['local-usgs-springs'];
   assert.equal(nextLayerStateToken(beforeNews), '00');
   assert.equal(
     nextLayerStateToken({
@@ -538,9 +541,9 @@ test('Nepal event and locator have distinct enabled-only share tokens', () => {
 
 test('USGS water layers have stable enabled-only share tokens', () => {
   for (const [token, id] of [
-    ['9', 'local-usgs-water'],
-    ['00', 'local-usgs-lakes'],
-    ['01', 'local-usgs-springs'],
+    ['02', 'local-usgs-water'],
+    ['03', 'local-usgs-lakes'],
+    ['04', 'local-usgs-springs'],
   ]) {
     const decoded = decodeLayerStateParams(
       new URLSearchParams(`v=2&l=${token}`),

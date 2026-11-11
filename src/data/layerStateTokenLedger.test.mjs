@@ -44,8 +44,8 @@ const allReservationRows = JSON.parse(
   ),
 );
 // The allocation scenarios below start from the ledger as published before
-// the USGS water layers (digits 9, 00 and 01 are theirs), so each scenario still
-// exercises "the next free token is 9".
+// the USGS water layers; individual fixtures below remove later reservations
+// where they exercise historic allocation scenarios.
 const reservationRows = allReservationRows.filter(
   ([id]) => !id.startsWith('local-usgs-'),
 );
@@ -133,6 +133,20 @@ function writeCodecFixture(cwd, rows, entries) {
       /  Object\.freeze\(\{\s*id: 'shipwrecks',[\s\S]*?\}\),\n/,
       '',
     );
+  for (const id of [
+    'local-usgs-water',
+    'local-usgs-lakes',
+    'local-usgs-springs',
+  ]) {
+    if (!rows.some(([rowId]) => rowId === id)) {
+      source = source.replace(
+        new RegExp(
+          `  Object\\.freeze\\(\\{\\s*id: '${id}',[\\s\\S]*?\\}\\),\\n`,
+        ),
+        '',
+      );
+    }
+  }
   const registryEnd = ']);\n\nexport const REGISTERED_LAYER_IDS';
   assert.equal(source.split(registryEnd).length, 2);
   const additions = entries
@@ -156,7 +170,7 @@ test('reservation ledger is complete, pinned, and rejects duplicate or malformed
     { ...parseLayerStateTokenReservations(allReservationRows) },
     { ...LAYER_STATE_TOKEN_RESERVATIONS },
   );
-  assert.equal(Object.keys(LAYER_STATE_TOKEN_RESERVATIONS).length, 38);
+  assert.equal(Object.keys(LAYER_STATE_TOKEN_RESERVATIONS).length, 41);
   assert.deepEqual(
     { ...LAYER_STATE_TOKEN_RESERVATIONS },
     {
@@ -171,6 +185,9 @@ test('reservation ledger is complete, pinned, and rejects duplicate or malformed
       'wildlife-sightings': '9',
       news: '00',
       shipwrecks: '01',
+      'local-usgs-water': '02',
+      'local-usgs-lakes': '03',
+      'local-usgs-springs': '04',
     },
   );
   assert.throws(
@@ -196,9 +213,9 @@ test('reservation ledger is complete, pinned, and rejects duplicate or malformed
     /Duplicate layer-state token reservation/,
   );
   assert.equal(
-    parseLayerStateTokenReservations([...reservationRows, ['future', '02']])
+    parseLayerStateTokenReservations([...reservationRows, ['future', '05']])
       .future,
-    '02',
+    '05',
   );
   assert.throws(
     () =>
