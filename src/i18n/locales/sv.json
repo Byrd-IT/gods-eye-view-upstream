@@ -3629,5 +3629,20 @@
   "Scope opacity": "Scope-opacitet",
   "How dark the scope shades the view outside the keyhole": "Hur mycket scopet mörkar vyn utanför nyckelhålet",
   "Reset to default": "Återställ till standard",
-  "Reset Visual to its defaults: Normal look, HUD, scope, labels and effects": "Återställ Visuellt till standard: Normal stil, HUD, scope, etiketter och effekter"
+  "Reset Visual to its defaults: Normal look, HUD, scope, labels and effects": "Återställ Visuellt till standard: Normal stil, HUD, scope, etiketter och effekter",
+  "Tilt up toward the horizon": "Luta uppåt mot horisonten",
+  "Tilt down toward top-down view": "Luta nedåt mot ovanifrånvy",
+  "Top-down view": "Vy ovanifrån",
+  "Look left": "Se åt vänster",
+  "Look right": "Se åt höger",
+  "Look up": "Se uppåt",
+  "Look down": "Se nedåt",
+  "Map navigation": "Kartnavigering",
+  "Tilt": "Lutning",
+  "Tilt: top-down (bottom) to near horizon (top)": "Lutning: ovanifrån (nedtill) till nära horisonten (upptill)",
+  "Map heading. Drag to rotate, arrow keys turn, Home for north": "Kartans riktning. Dra för att rotera, använd piltangenterna för att vrida och Home för norr",
+  "North, 0 degrees": "Norr, 0 grader",
+  "Look around": "Se dig omkring",
+  "{heading} degrees from north": "{heading} grader från norr",
+  "{tilt} degrees from top-down": "{tilt} grader från ovanifrånvy"
 }
