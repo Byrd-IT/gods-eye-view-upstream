@@ -3639,5 +3639,6 @@
   "Search layers…": "Sök lager…",
   "Layer groups": "Lagergrupper",
   "Jump to {name}": "Gå till {name}",
-  "No layers match": "Inga lager matchar"
+  "No layers match": "Inga lager matchar",
+  "{name} opacity": "Opacitet för {name}"
 }
