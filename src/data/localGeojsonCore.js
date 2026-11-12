@@ -5,10 +5,6 @@ import {
   parseGeojsonLines,
 } from '../sources/infrastructureData.js';
 import { createInfrastructureOverlayEntry } from './infrastructureOverlayEntry.js';
-import {
-  isUsgsWaterLayer,
-  usgsWaterCardDetails,
-} from '../layers/usgsWater/copy.js';
 import { isPointerFree } from './inputOwnership.js';
 import {
   selectInfraLod,
@@ -50,9 +46,16 @@ const LOCAL_STEM_TIP_EPSILON_SQ = LOCAL_STEM_TIP_EPSILON_M ** 2;
  * Build the owner-approved local-infrastructure card copy.
  * @param {object} properties Unwrapped GeoJSON feature properties.
  * @param {string} layerId Local layer id.
+ * @param {function(object):string[]|null} [cardDetails] A layer's own detail
+ *   lines for a feature, when it is not one of the built-in layers. A hook
+ *   that returns anything but an array (null, undefined) adds no lines.
  * @returns {{title:string,details:string[]}}
  */
-export function localInfrastructureOverlayCopy(properties, layerId) {
+export function localInfrastructureOverlayCopy(
+  properties,
+  layerId,
+  cardDetails = null,
+) {
   const props = unwrapProperties(properties) || {};
   const tags = props.tags || {};
   const title = featureLabelFromProperties(props, layerId);
@@ -90,10 +93,10 @@ export function localInfrastructureOverlayCopy(properties, layerId) {
     if (river && river.toLocaleLowerCase() !== title.toLocaleLowerCase()) {
       details.push(clampCardLine(river));
     }
-  } else if (isUsgsWaterLayer(layerId)) {
-    // Gauge readings + observation time (src/layers/usgsWater/copy.js).
-    for (const line of usgsWaterCardDetails(props)) {
-      details.push(clampCardLine(line));
+  } else if (typeof cardDetails === 'function') {
+    const lines = cardDetails(props);
+    if (Array.isArray(lines)) {
+      for (const line of lines) details.push(clampCardLine(line));
     }
   }
 
@@ -110,6 +113,8 @@ export function localInfrastructureOverlayCopy(properties, layerId) {
  * @param {object} options.properties Unwrapped feature properties.
  * @param {number} options.priority Source-owned importance score.
  * @param {string} options.accent Source accent color.
+ * @param {function(object):string[]|null} [options.cardDetails] The layer's
+ *   own detail lines for a feature (see localInfrastructureOverlayCopy).
  * @returns {object}
  */
 export function createLocalInfrastructureOverlayEntry({
@@ -119,8 +124,9 @@ export function createLocalInfrastructureOverlayEntry({
   properties,
   priority,
   accent,
+  cardDetails = null,
 }) {
-  const copy = localInfrastructureOverlayCopy(properties, layerId);
+  const copy = localInfrastructureOverlayCopy(properties, layerId, cardDetails);
   return createInfrastructureOverlayEntry({
     id,
     source: layerId,
@@ -325,6 +331,12 @@ export function createLocalGeoJsonLayer(
      * viewport-driven layers can call `reload()` to rebuild from new data.
      */
     loadFeatures = null,
+    /**
+     * Optional `(properties) => string[]|null` giving the detail lines of a
+     * feature's card, for layers whose cards show more than a name; a hook
+     * that returns nothing leaves the card with its title alone.
+     */
+    cardDetails = null,
     screenSpaceEventHandlerFactory = (canvas) =>
       new Cesium.ScreenSpaceEventHandler(canvas),
     projectToWindow = (scene, position) =>
@@ -443,6 +455,19 @@ export function createLocalGeoJsonLayer(
     clearTimeout(_groundRetryTimer);
     _groundRetryTimer = null;
   }
+  /** The overlay card for a stem record, worded from its own properties. */
+  const buildCardEntry = (record) =>
+    labels
+      ? createLocalInfrastructureOverlayEntry({
+          id: record.id,
+          layerId: id,
+          position: record.tip,
+          properties: record.properties,
+          priority: record.priority,
+          accent: color,
+          cardDetails,
+        })
+      : null;
   const _overlayPublisher = createLocalInfrastructureOverlayPublisher({
     sourceId: id,
     host: overlayHost,
@@ -749,7 +774,7 @@ export function createLocalGeoJsonLayer(
                 });
 
                 const priority = labelPriorityFromProperties(properties, id);
-                _stemRecords.push({
+                const record = {
                   id: recordId,
                   entity: feature,
                   carto,
@@ -762,17 +787,11 @@ export function createLocalGeoJsonLayer(
                   groundSampled: false,
                   lastGroundSampleMs: 0,
                   priority,
-                  entry: labels
-                    ? createLocalInfrastructureOverlayEntry({
-                        id: recordId,
-                        layerId: id,
-                        position: tip,
-                        properties,
-                        priority,
-                        accent: color,
-                      })
-                    : null,
-                });
+                  properties,
+                  entry: null,
+                };
+                record.entry = buildCardEntry(record);
+                _stemRecords.push(record);
               }
               // Setup finished — publish it.
               _dataSource = loaded;
@@ -1084,6 +1103,21 @@ export function createLocalGeoJsonLayer(
     },
 
     disable: disableLayer,
+
+    /**
+     * Word every card again from the features already loaded, with no
+     * request: the `cardDetails` hook runs once more and the next frame
+     * publishes the new cards. For a caller that words card text in a
+     * language that has just changed. Does nothing while the layer holds no
+     * loaded features (disabled, still loading, destroyed).
+     */
+    refreshCards: () => {
+      if (_destroyed || !_enabled || !labels || _stemRecords.length === 0)
+        return;
+      for (const record of _stemRecords) record.entry = buildCardEntry(record);
+      _lastVisibilityUpdate = Number.NEGATIVE_INFINITY;
+      governorRequestRender(`local-cards:${id}`);
+    },
 
     /**
      * Rebuild entities from a fresh `loadFeatures()` call while the
