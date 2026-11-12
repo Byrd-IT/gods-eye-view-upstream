@@ -3605,5 +3605,6 @@
   "Confirm: remove every added entry from Data Layers": "Bekräfta: ta bort alla tillagda poster från Datalager",
   "Remove every added entry from Data Layers": "Ta bort alla tillagda poster från Datalager",
   "Showing {shown} of {total}": "Visar {shown} av {total}",
-  "BROWSE DATA LIBRARY": "BLÄDDRA I DATABIBLIOTEKET"
+  "BROWSE DATA LIBRARY": "BLÄDDRA I DATABIBLIOTEKET",
+  "{name} opacity": "Opacitet för {name}"
 }
